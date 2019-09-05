@@ -1,3 +1,4 @@
+
 const func = () => {};
 
-export default func;
+module.exports = func;
