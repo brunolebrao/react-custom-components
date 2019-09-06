@@ -1,11 +1,1 @@
-(function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined'
-    ? (module.exports = factory())
-    : typeof define === 'function' && define.amd
-      ? define(factory)
-      : ((global = global || self), (global.ReactCustomComponents = factory()));
-}(this, () => {
-  const func = () => {};
-
-  return func;
-}));
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t(require("react")):"function"==typeof define&&define.amd?define(["react"],t):(e=e||self).ReactCustomComponents=t(e.React)}(this,function(e){"use strict";e=e&&e.hasOwnProperty("default")?e.default:e;return function(t){return e.createElement("h1",null,"Spinner")}});
