@@ -1,12 +1,12 @@
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
-import { OutputQuoteStyle } from 'terser';
+import babel from 'rollup-plugin-babel'
+import resolve from 'rollup-plugin-node-resolve'
+import { terser } from 'rollup-plugin-terser'
+import { string } from 'rollup-plugin-string'
 
-const dist = 'dist';
-const bundle = 'bundle';
+const dist = 'dist'
+const bundle = 'bundle'
 
-const production = !process.env.ROLLUP_WATCH;
+const production = !process.env.ROLLUP_WATCH
 
 export default {
   input: 'src/index.js',
@@ -14,26 +14,29 @@ export default {
   output: [
     {
       file: `${dist}/${bundle}.cjs.js`,
-      format: 'cjs',
+      format: 'cjs'
     },
     {
       file: `${dist}/${bundle}.esm.js`,
-      format: 'esm',
+      format: 'esm'
     },
     {
       name: 'ReactCustomComponents',
       file: `${dist}/${bundle}.umd.js`,
       globals: {
-        react: 'React',
+        react: 'React'
       },
-      format: 'umd',
-    },
+      format: 'umd'
+    }
   ],
   plugins: [
     resolve(),
     babel({
-      exclude: 'node_modules/**',
+      exclude: 'node_modules/**'
     }),
-    production && terser(),
-  ],
-};
+    string({
+      include: '**/*.css'
+    }),
+    production && terser()
+  ]
+}
