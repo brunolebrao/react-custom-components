@@ -4,7 +4,7 @@
     "es6": true,
     "node": true
   },
-  "extends": ["standard", "plugin:jest/recommended"],
+  "extends": ["standard", "plugin:jest/recommended", "eslint:recommended"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -17,5 +17,8 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": {}
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  }
 }
